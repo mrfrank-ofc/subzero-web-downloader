@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Audio Downloader</title>
+    <style>/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.result {
+    margin-top: 20px;
+    color: green;
+}
+
+    
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>YouTube Audio Downloader</h1>
+        <p>Enter a YouTube URL and download the audio as an MP3 file.</p>
+
+        <input type="text" id="yt-url" placeholder="Enter YouTube URL" />
+        <button id="download-btn">Download Audio</button>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+
+// script.js
+document.getElementById('download-btn').addEventListener('click', function() {
+    var url = document.getElementById('yt-url').value.trim();
+    
+    if (url === "") {
+        alert("Please enter a YouTube URL.");
+        return;
+    }
+
+    // API endpoint
+    var apiUrl = `https://api.giftedtech.my.id/api/download/dlmp3?apikey=gifted&url=${encodeURIComponent(url)}`;
+
+    // Fetch data from API
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Check if the API returned a valid response
+            if (data.success) {
+                // Display the download link
+                var downloadLink = data.url;
+    
+    
+    
+    
+</script>
+</body>
+</html>
